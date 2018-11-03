@@ -27,11 +27,11 @@ class PluginShowhidesidebar_HookShowhidesidebar extends Hook
 
     public function WrapperClass()
     {
-        if (in_array(Router::GetAction(), Config::Get('plugin.showhidesidebar.action_off'))){
+        if (in_array(Router::GetAction(), Config::Get('plugin.showhidesidebar.action_off'))) {
             return;
         }
         $sClass = '';
-        if (!empty($_COOKIE['shs'])){
+        if (!empty($_COOKIE['shs'])) {
             $sClass = 'no-sidebar';
         }
         return $sClass;
@@ -39,7 +39,7 @@ class PluginShowhidesidebar_HookShowhidesidebar extends Hook
 
     public function BodyBegin()
     {
-        if (in_array(Router::GetAction(), Config::Get('plugin.showhidesidebar.action_off'))){
+        if (in_array(Router::GetAction(), Config::Get('plugin.showhidesidebar.action_off'))) {
             return;
         }
         return $this->Viewer_Fetch(Plugin::GetTemplatePath('showhidesidebar') . '/body_begin.tpl');
@@ -52,4 +52,3 @@ class PluginShowhidesidebar_HookShowhidesidebar extends Hook
 
 }
 
-?>

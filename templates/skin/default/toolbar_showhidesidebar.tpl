@@ -1,16 +1,21 @@
 <section class="toolbar-showhide-sidebar" id="" style="">
-    <a href="#" id="show-sidebar" title="{$aLang.plugin.showhidesidebar.show}"{if $smarty.cookies.shs} style="display: block"{/if}></a>
-    <a href="#" id="hide-sidebar" title="{$aLang.plugin.showhidesidebar.hide}"{if $smarty.cookies.shs} style="display: none"{/if}></a>
+    <a href="#" id="show-sidebar"
+       title="{$aLang.plugin.showhidesidebar.show}"{if $smarty.cookies.shs} style="display: block"{/if}></a>
+    <a href="#" id="hide-sidebar"
+       title="{$aLang.plugin.showhidesidebar.hide}"{if $smarty.cookies.shs} style="display: none"{/if}></a>
 </section>
-<script type='text/javascript' src='{$oConfig->get('path.root.web')}/plugins/showhidesidebar/js/jquery-ui.min.v1.8.24.js'></script>
+<script type='text/javascript'
+        src='{$oConfig->get('path.root.web')}/plugins/showhidesidebar/js/jquery-ui.min.v1.8.24.js'></script>
+
 <script>
     jQuery(document).ready(function ($) {
 
         $("#show-sidebar").click(function () {
             $('#wrapper').removeClass('no-sidebar');
             $("#sidebar").show("slide", {
-                direction:'{$oConfig->get('plugin.showhidesidebar.direction')}'
-            }, {$oConfig->get('plugin.showhidesidebar.speed')}, function(){ });
+                direction: '{$oConfig->get('plugin.showhidesidebar.direction')}'
+            }, {$oConfig->get('plugin.showhidesidebar.speed')}, function () {
+            });
             $('#show-sidebar').css('display', 'none');
             $('#hide-sidebar').css('display', 'block');
             document.cookie = "shs=0; path=/";
@@ -18,8 +23,10 @@
         });
         $("#hide-sidebar").click(function () {
             $("#sidebar").hide("slide", {
-                direction:'{$oConfig->get('plugin.showhidesidebar.direction')}'
-            }, {$oConfig->get('plugin.showhidesidebar.speed')}, function(){ $('#wrapper').addClass('no-sidebar');});
+                direction: '{$oConfig->get('plugin.showhidesidebar.direction')}'
+            }, {$oConfig->get('plugin.showhidesidebar.speed')}, function () {
+                $('#wrapper').addClass('no-sidebar');
+            });
             $('#show-sidebar').css('display', 'block');
             $('#hide-sidebar').css('display', 'none');
             document.cookie = "shs=1; path=/";
@@ -28,9 +35,9 @@
     });
 </script>
 {if $smarty.cookies.shs==1}
-<style>
-    #sidebar {
-        display: none;
-    }
-</style>
+    <style>
+        #sidebar {
+            display: none;
+        }
+    </style>
 {/if}

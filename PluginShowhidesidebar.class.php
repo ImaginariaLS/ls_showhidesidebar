@@ -34,8 +34,10 @@ class PluginShowhidesidebar extends Plugin
     public function Init()
     {
         $this->Viewer_AppendStyle(Plugin::GetTemplateWebPath('showhidesidebar') . 'css/style.css');
+
+        //@todo: требуется тестирование вживую
+        // $this->Viewer_AppendScript(Plugin::GetTemplatePath(__CLASS__) . 'js/jquery-ui.custom.v1.12.1.js');
     }
 
 }
 
-?>

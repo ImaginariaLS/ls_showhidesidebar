@@ -11,9 +11,16 @@
  *
  ---------------------------------------------------------
  */
-#show-sidebar, #hide-sidebar{
-    background: transparent url("../images/icon_show_hide.png") no-repeat 0 0; width: 24px; height: 24px; display: block;
+#show-sidebar, #hide-sidebar {
+    /* оптимально будет использовать base64-изображение */
+
+    background: transparent url("../images/icon_show_hide.png") no-repeat 0 0;
+    width: 24px;
+    height: 24px;
+    display: block;
 }
-#show-sidebar{
-    background-position: 0 -24px; display: none;
+
+#show-sidebar {
+    background-position: 0 -24px;
+    display: none;
 }
