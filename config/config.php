@@ -20,4 +20,9 @@ $config['action_off'] = array('admin', 'error'); // экшены на котор
 $config['speed'] = 1000; // скорость анимации движения при открытии/закрытии сайдбара в микросекундах
 $config['direction'] = 'right'; // направление сворачивания
 
+$config['hook_priority'] = [
+    'template_body_begin'       =>  201,
+    'template_wrapper_class'    =>  201
+];
+
 return $config;

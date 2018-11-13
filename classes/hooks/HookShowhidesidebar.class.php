@@ -16,13 +16,24 @@
 
 class PluginShowhidesidebar_HookShowhidesidebar extends Hook
 {
+    const ConfigKey = 'showhidesidebar';
+    const HooksArray = [
+        'template_body_begin'  =>  'BodyBegin', // 201
+        'template_wrapper_class'    =>  'WrapperClass',  //201
+        'template_copyright'    =>  'Copyright'
+    ];
 
     public function RegisterHook()
     {
-        $this->AddHook('template_body_begin', 'BodyBegin', __CLASS__, 201);
-        $this->AddHook('template_wrapper_class', 'WrapperClass', __CLASS__, 201);
-
-        $this->AddHook('template_copyright', 'Copyright', __CLASS__);
+        $plugin_config_key = $this::ConfigKey;
+        foreach ($this::HooksArray as $hook => $callback) {
+            $this->AddHook(
+                $hook,
+                $callback,
+                __CLASS__,
+                Config::Get("plugin.{$plugin_config_key}.hook_priority.{$hook}") ?? 1
+            );
+        }
     }
 
     public function WrapperClass()
