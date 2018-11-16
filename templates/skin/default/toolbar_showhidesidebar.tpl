@@ -4,9 +4,6 @@
     <a href="#" id="hide-sidebar"
        title="{$aLang.plugin.showhidesidebar.hide}"{if $smarty.cookies.shs} style="display: none"{/if}></a>
 </section>
-<script type='text/javascript'
-        src='{$oConfig->get('path.root.web')}/plugins/showhidesidebar/js/jquery-ui.min.v1.8.24.js'></script>
-
 <script>
     jQuery(document).ready(function ($) {
 

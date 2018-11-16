@@ -35,8 +35,18 @@ class PluginShowhidesidebar extends Plugin
     {
         $this->Viewer_AppendStyle(Plugin::GetTemplateWebPath('showhidesidebar') . 'css/style.css');
 
-        //@todo: требуется тестирование вживую
-        // $this->Viewer_AppendScript(Plugin::GetTemplatePath(__CLASS__) . 'js/jquery-ui.custom.v1.12.1.js');
+        /**
+         * Раньше это подключалось так:
+         * в plugins/showhidesidebar/templates/skin/default/toolbar_showhidesidebar.tpl
+         *
+         * <script type='text/javascript' src='{$oConfig->get('path.root.web')}/plugins/showhidesidebar/js/jquery-ui.min.v1.8.24.js'></script>
+         *
+         * Но тут подключается огромная версия на 200 килобайт минифицированная. JQuery UI 1.8.24
+         * Попытки подключить другую версию пока неуспешны :(
+         *
+         * https://jqueryui.com/download/
+         */
+        $this->Viewer_AppendScript(Plugin::GetTemplatePath(__CLASS__) . 'js/jquery-ui.min.v1.8.24.js'); // работает
     }
 
 }
